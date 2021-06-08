@@ -11,13 +11,14 @@ function App() {
   const viewHorizontal = () => {
     setIsVertical(false)
   }
+
   return (
     <>
       <SideBar viewVertical={viewVertical} viewHorizontal={viewHorizontal} isVertical={isVertical} />
       <main style={{ paddingLeft: '430px', paddingRight: '39px' }}>
-
         <News isVertical={isVertical} />
       </main>
+
     </>
   );
 }

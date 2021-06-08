@@ -1,12 +1,12 @@
 import React from 'react'
 import './NewsModal.css'
-const NewsModal = () => {
-  return (
-    <div id="myModal" class="modal">
+const NewsModal = ({ link, modalClose }) => {
 
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+
+  return (
+    <div onClick={modalClose} className="news_modal">
+      <div className="modal_text">
+        <iframe src={link} frameBorder="0"></iframe>
       </div>
 
     </div>
