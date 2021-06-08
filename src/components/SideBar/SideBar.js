@@ -1,7 +1,9 @@
 import React from 'react'
 import './SideBar.css'
 import readerImage from '../../images/reader.svg'
-const SideBar = () => {
+import verticalIcon from '../../images/vertical.svg'
+import horizontalIcon from '../../images/horizontal.svg'
+const SideBar = ({ viewVertical, viewHorizontal, isVertical }) => {
   return (
     <div className='root'>
       <div className='reader'>
@@ -14,7 +16,12 @@ const SideBar = () => {
 
       <div className="toggle">
         <h3>View Toggle</h3>
-        <button className='toggle_btn'>ths</button>
+        <button onClick={viewVertical} className={`toggle_btn ${isVertical && 'active'} ver_btn`}>
+          <img src={verticalIcon} alt="vertical icon" />
+        </button>
+        <button onClick={viewHorizontal} className={`toggle_btn ${isVertical || 'active'} hor_btn`}>
+          <img src={horizontalIcon} alt="horizontal icon" />
+        </button>
       </div>
 
       <div className="feedback">

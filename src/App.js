@@ -1,13 +1,22 @@
+import { useState } from "react";
 import News from "./components/News/News";
 import SideBar from "./components/SideBar/SideBar";
 
 function App() {
+  const [isVertical, setIsVertical] = useState(true)
+
+  const viewVertical = () => {
+    setIsVertical(true)
+  }
+  const viewHorizontal = () => {
+    setIsVertical(false)
+  }
   return (
     <>
-      <SideBar />
-      <main style={{ paddingLeft: '400px' }}>
+      <SideBar viewVertical={viewVertical} viewHorizontal={viewHorizontal} isVertical={isVertical} />
+      <main style={{ paddingLeft: '430px', paddingRight: '39px' }}>
 
-        <News />
+        <News isVertical={isVertical} />
       </main>
     </>
   );

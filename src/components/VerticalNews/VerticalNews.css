@@ -1,0 +1,15 @@
+.news {
+  background: #ffffff;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+}
+.remove {
+  position: absolute;
+  color: #ff0000;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+}

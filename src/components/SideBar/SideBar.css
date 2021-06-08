@@ -43,10 +43,20 @@
   border-radius: 8px;
 }
 .toggle_btn {
+  padding: 13px 25px;
+  border: none;
   background: #ebf2f7;
   box-shadow: inset 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
     inset 0px 18px 88px -4px rgba(24, 39, 75, 0.14);
-  border-radius: 8px;
+}
+.toggle_btn.active {
+  background: #a3ffd3;
+}
+.ver_btn {
+  border-radius: 8px 0 0 8px;
+}
+.hor_btn {
+  border-radius: 0 8px 8px 0;
 }
 
 .feedback {
