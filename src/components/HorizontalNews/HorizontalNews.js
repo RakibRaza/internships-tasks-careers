@@ -14,8 +14,8 @@ const HorizontalNews = ({ id, title, summary, published, link, removeNews }) => 
     <>
       <div className='col-12 g-3'>
         <article onClick={modalOpen} className='news py-3 ps-5'>
-          <h4>{`${title?.slice(0, 70)}...`}</h4>
-          <p>{`${summary?.slice(0, 100)}...`}</p>
+          <h4>{`${title?.slice(0, 60)}...`}</h4>
+          <p>{`${summary?.slice(0, 90)}...`}</p>
           <p className='text-secondary mb-0'>{published}</p>
           <FaTimes className='remove' onClick={() => removeNews(id)} />
         </article>
