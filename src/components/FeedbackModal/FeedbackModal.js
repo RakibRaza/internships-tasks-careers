@@ -7,13 +7,12 @@ import { db } from '../../firebase';
 
 const FeedbackModal = ({ modalClose }) => {
   const modalRef = useRef(null)
-  const [user, setUser] = useState({ fName: '', lName: '', address: '', email: '', phone: '' })
+  const [user, setUser] = useState({ fName: '', lName: '', address: '', country: '', email: '', phone: '' })
   const [isEmail, setIsEmail] = useState(false)
   const [isPhone, setIsPhone] = useState(false)
 
   const [display, setDisplay] = useState(false)
   const [options] = useState(countryList)
-  const [search, setSearch] = useState('')
   const wrapperRef = useRef(null)
 
   const handleModalClose = (e) => {
@@ -31,17 +30,16 @@ const FeedbackModal = ({ modalClose }) => {
   }
 
   const handleSearch = (country) => {
-    setSearch(country)
+    setUser({ ...user, country })
     setDisplay(false)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     if (isEmail && isPhone) {
       db.collection('feedbacks').add(user).then(() => alert('Feedback has been submitted')).catch((error) => alert(error.message))
 
-      setUser({ fName: '', lName: '', address: '', email: '', phone: '' })
+      setUser({ fName: '', lName: '', address: '', country: '', email: '', phone: '' })
     }
   }
 
@@ -105,9 +103,9 @@ const FeedbackModal = ({ modalClose }) => {
             <div className="mb-2">
               <label htmlFor="country" className="form-label">Country:</label>
               <div ref={wrapperRef} className='auto_complete w-75'>
-                <input onClick={() => setDisplay(!display)} onChange={(e) => setSearch(e.target.value)} type="text" value={search} className="form-control search_input" id="country" placeholder='India' autoComplete='no' />
+                <input onClick={() => setDisplay(!display)} onChange={(e) => setUser({ ...user, country: e.target.value })} type="text" value={user.country} className="form-control search_input" id="country" placeholder='India' autoComplete='no' />
                 {display && <ul className="suggestions list-group w-100 list-group-flush">
-                  {options.filter(item => item.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1).slice(0, 4).map((item, index) => {
+                  {options.filter(item => item.toLocaleLowerCase().indexOf(user.country.toLocaleLowerCase()) > -1).slice(0, 4).map((item, index) => {
                     return <li onClick={() => handleSearch(item)} key={index} className='list-group-item'>{item}</li>
                   })}
                 </ul>}
