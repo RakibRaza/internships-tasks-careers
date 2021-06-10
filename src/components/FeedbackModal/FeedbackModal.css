@@ -53,7 +53,7 @@
   position: relative;
 }
 .search_input {
-  background: url("../../images/search.svg") no-repeat 340px;
+  background: #fff url("../../images/search.svg") no-repeat 340px;
 }
 .suggestions {
   position: absolute;
