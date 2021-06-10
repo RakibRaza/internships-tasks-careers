@@ -9,7 +9,7 @@ const News = ({ isVertical }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [newsPerPage] = useState(4);
 
-  const [pageNumberLimit, setPageNumberLimit] = useState(3)
+  const [pageNumberLimit] = useState(3)
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3)
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
 
@@ -30,7 +30,6 @@ const News = ({ isVertical }) => {
   const indexOfLastNews = currentPage * newsPerPage;
   const indexOfFirstNews = indexOfLastNews - newsPerPage;
   const currentNews = news.slice(indexOfFirstNews, indexOfLastNews);
-  console.log(news)
 
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -65,6 +64,7 @@ const News = ({ isVertical }) => {
       </div > : <div className="row">
         {currentNews.map(item => <HorizontalNews removeNews={removeNews} key={item.id} {...item} />)}
       </div>}
+
       <Pagination newsPerPage={newsPerPage}
         totalNews={news.length}
         paginate={paginate} currentPage={currentPage} handleNextBtn={handleNextBtn} handlePrevBtn={handlePrevBtn} maxPageNumberLimit={maxPageNumberLimit} minPageNumberLimit={minPageNumberLimit} />

@@ -3,7 +3,7 @@ import News from "./components/News/News";
 import SideBar from "./components/SideBar/SideBar";
 
 function App() {
-  const [isVertical, setIsVertical] = useState(true)
+  const [isVertical, setIsVertical] = useState(false)
 
   const viewVertical = () => {
     setIsVertical(true)
@@ -18,7 +18,6 @@ function App() {
       <main style={{ paddingLeft: '430px', paddingRight: '39px' }}>
         <News isVertical={isVertical} />
       </main>
-
     </>
   );
 }

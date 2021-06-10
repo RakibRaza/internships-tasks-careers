@@ -21,7 +21,6 @@ const HorizontalNews = ({ id, title, summary, published, link, removeNews }) => 
         </article>
       </div>
       {isModalOpen && <NewsModal modalClose={modalClose} link={link} />}
-
     </>
   )
 }
